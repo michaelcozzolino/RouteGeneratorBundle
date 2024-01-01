@@ -1,19 +1,20 @@
 {
-    "name": "acme/test-bundle",
+    "name": "michaelcozzolino/route-generator-bundle",
     "type": "symfony-bundle",
     "autoload": {
         "psr-4": {
-            "Acme\\TestBundle\\": "src/"
+            "MichaelCozzolino\\RouteGeneratorBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Acme\\TestBundle\\Tests\\": "tests/"
+            "MichaelCozzolino\\RouteGeneratorBundle\\Tests\\": "tests/"
         }
     },
     "require": {
         "php": ">=8.1",
-        "symfony/framework-bundle": "6.3.*"
+        "symfony/framework-bundle": "6.3.*",
+        "symfony/console": "6.3.*"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^6.3",
