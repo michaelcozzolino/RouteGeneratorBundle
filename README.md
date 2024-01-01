@@ -1,6 +1,41 @@
-# Symfony bundle template
+Installation
+============
 
-This project provides a boilerplate for Symfony bundles. It pre-defines needed classes and some basic configuration.
+Make sure Composer is installed globally, as explained in the
+[installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
 
-For more details about how to structure your bundle checkout
-the [Symfony Documentation](https://symfony.com/doc/current/bundles.html).
+Applications that use Symfony Flex
+----------------------------------
+
+Open a command console, enter your project directory and execute:
+
+```console
+$ composer require michaelcozzolino\RouteGeneratorBundle
+```
+
+Applications that don't use Symfony Flex
+----------------------------------------
+
+### Step 1: Download the Bundle
+
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
+
+```console
+$ composer require michaelcozzolino\RouteGeneratorBundle
+```
+
+### Step 2: Enable the Bundle
+
+Then, enable the bundle by adding it to the list of registered bundles
+in the `config/bundles.php` file of your project:
+
+```php
+// config/bundles.php
+
+return [
+    // ...
+    MichaelCozzolino\RouteGeneratorBundle\RouteGeneratorBundle::class => ['dev' => true],
+];
+```
