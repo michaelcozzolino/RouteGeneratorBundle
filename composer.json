@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "autoload": {
         "psr-4": {
-            "MichaelCozzolino\\SymfonyRouteGeneratorBundle\\": "src/SymfonyRouteGeneratorBundle/"
+            "MichaelCozzolino\\SymfonyRouteGeneratorBundle\\": "src/"
         }
     },
     "autoload-dev": {
