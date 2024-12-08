@@ -1,6 +1,8 @@
 {
     "name": "michaelcozzolino/symfony-route-generator-bundle",
+    "description": "Generate symfony routes for your api",
     "type": "symfony-bundle",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "MichaelCozzolino\\SymfonyRouteGeneratorBundle\\": "src/"
