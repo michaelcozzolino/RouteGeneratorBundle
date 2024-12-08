@@ -1,0 +1,11 @@
+parameters:
+    inferPrivatePropertyTypeFromConstructor: true
+
+    level: max
+
+    excludePaths:
+        - tests/
+    paths:
+        - src/
+
+    tmpDir: .build/phpstan/

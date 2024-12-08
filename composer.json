@@ -13,11 +13,29 @@
     },
     "require": {
         "php": ">=8.2",
-        "symfony/framework-bundle": "~7.1.0",
-        "symfony/console": "~7.1.0"
+        "symfony/framework-bundle": "^7.2.0",
+        "symfony/console": "^7.2.0"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "~7.1.0",
-        "phpunit/phpunit": "^10.4"
+        "symfony/phpunit-bridge": "^7.2.0",
+        "phpunit/phpunit": "^10.4",
+        "vimeo/psalm": "^5.26.1",
+        "phpstan/phpstan": "^2.0"
+    },
+    "scripts": {
+        "psalm": [
+            "vendor/bin/psalm --no-cache"
+        ],
+        "phpstan": "vendor/bin/phpstan clear-result-cache --configuration=phpstan.neon && vendor/bin/phpstan --configuration=phpstan.neon --memory-limit=-1",
+        "static-analysis": [
+            "@psalm",
+            "@phpstan"
+        ],
+        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
     }
 }

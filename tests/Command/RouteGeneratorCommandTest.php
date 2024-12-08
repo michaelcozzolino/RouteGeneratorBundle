@@ -40,8 +40,8 @@ class RouteGeneratorCommandTest extends TestCase
     {
         parent::tearDown();
 
-        unlink(RouteGeneratorCommand::ROUTES_FILE_NAME);
-        unlink(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME);
+        @unlink(RouteGeneratorCommand::ROUTES_FILE_NAME);
+        @unlink(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME);
     }
 
     public function testExecute(): void
@@ -96,8 +96,8 @@ TS;
 
         $this->commandTester->execute([]);
 
-        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
-        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
+        self::assertFalse(@file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
+        self::assertFalse(@file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
     }
 
     public function testExecuteWhenAtLeastOneRouteIsASymfonyInternalRoute(): void
@@ -116,7 +116,7 @@ TS;
 
         $this->commandTester->execute([]);
 
-        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
-        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
+        self::assertFalse(@file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
+        self::assertFalse(@file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
     }
 }
