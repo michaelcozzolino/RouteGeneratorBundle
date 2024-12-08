@@ -36,6 +36,6 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    MichaelCozzolino\RouteGeneratorBundle\RouteGeneratorBundle::class => ['dev' => true],
+    MichaelCozzolino\SymfonyRouteGeneratorBundle\SymfonyRouteGeneratorBundle::class => ['dev' => true],
 ];
 ```
