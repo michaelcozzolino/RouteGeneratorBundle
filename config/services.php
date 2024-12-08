@@ -10,5 +10,5 @@ return function (ContainerConfigurator $configurator) {
              ->autoconfigure()
              ->private();
 
-    $services->load('MichaelCozzolino\RouteGeneratorBundle\\', '../src/{Command}/*');
+    $services->load('MichaelCozzolino\SymfonyRouteGeneratorBundle\\', '../src/{Command}/*');
 };

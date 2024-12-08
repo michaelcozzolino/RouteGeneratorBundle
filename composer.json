@@ -1,14 +1,14 @@
 {
-    "name": "michaelcozzolino/route-generator-bundle",
+    "name": "michaelcozzolino/symfony-route-generator-bundle",
     "type": "symfony-bundle",
     "autoload": {
         "psr-4": {
-            "MichaelCozzolino\\RouteGeneratorBundle\\": "src/"
+            "MichaelCozzolino\\SymfonyRouteGeneratorBundle\\": "src/SymfonyRouteGeneratorBundle/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MichaelCozzolino\\RouteGeneratorBundle\\Tests\\": "tests/"
+            "MichaelCozzolino\\SymfonyRouteGeneratorBundle\\Tests\\": "tests/"
         }
     },
     "require": {

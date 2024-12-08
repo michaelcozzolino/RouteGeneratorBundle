@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MichaelCozzolino\RouteGeneratorBundle\Command;
+namespace MichaelCozzolino\SymfonyRouteGeneratorBundle\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

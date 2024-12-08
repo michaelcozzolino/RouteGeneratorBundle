@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace MichaelCozzolino\RouteGeneratorBundle\Tests\Command;
+namespace MichaelCozzolino\SymfonyRouteGeneratorBundle\Tests\Command;
 
-use MichaelCozzolino\RouteGeneratorBundle\Command\RouteGeneratorCommand;
+use MichaelCozzolino\SymfonyRouteGeneratorBundle\Command\RouteGeneratorCommand;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Console\Application;

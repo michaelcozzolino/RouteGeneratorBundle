@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MichaelCozzolino\RouteGeneratorBundle\DependencyInjection;
+namespace MichaelCozzolino\SymfonyRouteGeneratorBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
-class MichaelCozzolinoRouteGeneratorBundleExtension extends Extension
+class MichaelCozzolinoSymfonyRouteGeneratorBundleExtension extends Extension
 {
     /**
      * @param array<array<mixed>> $configs
