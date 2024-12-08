@@ -76,8 +76,10 @@ class RouteGeneratorCommandTest extends TestCase
         );
 
         $expectedRouteTypeFileContent = <<<TS
-export type RouteName = 'route-1' |
+type RouteName = 'route-1' |
 'route-2';
+
+export default RouteName;
 TS;
         self::assertSame($expectedRouteTypeFileContent, file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
     }

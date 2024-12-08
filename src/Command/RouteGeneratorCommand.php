@@ -92,6 +92,6 @@ class RouteGeneratorCommand extends Command
     {
         $routeNamesUnionType = implode(' |' . PHP_EOL, $routeNames);
 
-        return "export type $typeName = $routeNamesUnionType;";
+        return "type $typeName = $routeNamesUnionType;" . PHP_EOL . PHP_EOL . "export default $typeName;";
     }
 }
