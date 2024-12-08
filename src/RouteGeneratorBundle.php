@@ -6,6 +6,9 @@ use MichaelCozzolino\RouteGeneratorBundle\DependencyInjection\MichaelCozzolinoRo
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
+/**
+ * @psalm-api
+ */
 class RouteGeneratorBundle extends AbstractBundle
 {
     public function getContainerExtension(): ?ExtensionInterface

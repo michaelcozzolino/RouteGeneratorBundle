@@ -7,24 +7,20 @@
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
-         failOnWarning="true">
-    <coverage>
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-        <exclude>
-            <directory>src/DependencyInjection</directory>
-            <file>src/RouteGeneratorBundle</file>
-        </exclude>
-    </coverage>
+         failOnWarning="true"
+>
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <source restrictDeprecations="true" restrictNotices="true" restrictWarnings="true">
+    <source>
         <include>
             <directory>src</directory>
         </include>
+        <exclude>
+            <directory>src/DependencyInjection</directory>
+            <file>src/RouteGeneratorBundle.php</file>
+        </exclude>
     </source>
 </phpunit>

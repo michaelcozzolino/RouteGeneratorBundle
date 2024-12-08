@@ -1,6 +1,6 @@
 /.idea/
 /vendor/
-composer.lock
 .phpunit.cache
 .phpunit.result.cache
-/routes.json
+coverage
+var

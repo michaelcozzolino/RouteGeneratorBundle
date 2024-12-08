@@ -11,6 +11,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
+use function file_get_contents;
+use function json_encode;
+use function unlink;
+use const JSON_PRETTY_PRINT;
 
 class RouteGeneratorCommandTest extends TestCase
 {
@@ -30,6 +34,14 @@ class RouteGeneratorCommandTest extends TestCase
         $command = $application->find(RouteGeneratorCommand::getDefaultName());
 
         $this->commandTester = new CommandTester($command);
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        unlink(RouteGeneratorCommand::ROUTES_FILE_NAME);
+        unlink(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME);
     }
 
     public function testExecute(): void
@@ -60,7 +72,51 @@ class RouteGeneratorCommandTest extends TestCase
                     'path' => '/path-to-route-2/{id}',
                 ],
             ], JSON_PRETTY_PRINT),
-            file_get_contents('routes.json')
+            file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME)
         );
+
+        $expectedRouteTypeFileContent = <<<TS
+export type RouteName = 'route-1' |
+'route-2';
+TS;
+        self::assertSame($expectedRouteTypeFileContent, file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
+    }
+
+    public function testExecuteWhenNoRouteExists(): void
+    {
+        $routeCollectionMock = $this->createMock(RouteCollection::class);
+
+        $this->routerMock->expects(self::once())
+                         ->method('getRouteCollection')
+                         ->willReturn($routeCollectionMock);
+
+        $routeCollectionMock->expects(self::once())
+                            ->method('all')
+                            ->willReturn([]);
+
+        $this->commandTester->execute([]);
+
+        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
+        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
+    }
+
+    public function testExecuteWhenAtLeastOneRouteIsASymfonyInternalRoute(): void
+    {
+        $routeCollectionMock = $this->createMock(RouteCollection::class);
+
+        $this->routerMock->expects(self::once())
+                         ->method('getRouteCollection')
+                         ->willReturn($routeCollectionMock);
+
+        $routeCollectionMock->expects(self::once())
+                            ->method('all')
+                            ->willReturn([
+                                '_profiler_something' => new Route('/path-to-profiler'),
+                            ]);
+
+        $this->commandTester->execute([]);
+
+        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTES_FILE_NAME));
+        self::assertFalse(file_get_contents(RouteGeneratorCommand::ROUTE_TYPE_FILE_NAME));
     }
 }
